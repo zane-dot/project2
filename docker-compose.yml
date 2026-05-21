@@ -1,0 +1,22 @@
+services:
+  server:
+    build: ./server
+    environment:
+      - PORT=3001
+      - DB_FILE=/data/jobtrack.db
+      # Optional — leave unset to use the deterministic local advice provider
+      # - OPENAI_API_KEY=${OPENAI_API_KEY}
+    volumes:
+      - jobtrack-data:/data
+    ports:
+      - "3001:3001"
+
+  client:
+    build: ./client
+    depends_on:
+      - server
+    ports:
+      - "8080:80"
+
+volumes:
+  jobtrack-data:
