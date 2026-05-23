@@ -9,7 +9,7 @@
     "dev:web": "vite --port 4173 --strictPort",
     "dev:server": "npm --prefix server run dev",
     "build": "tsc -b && vite build && npm --prefix server install --omit=dev",
-    "start": "node --env-file-if-exists=server/.env server/index.js",
+    "start": "node server/index.js",
     "preview": "vite preview --port 4173",
     "lint": "eslint . --max-warnings 0",
     "format": "prettier --write .",
