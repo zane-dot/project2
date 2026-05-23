@@ -1,39 +1,19 @@
 {
-  "name": "jobtrack-hk-server",
-  "version": "1.0.0",
-  "description": "JobTrack HK backend — Express + SQLite",
+  "name": "hk-pulse-server",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Tiny BFF proxy for HK Pulse — adds CORS, caching and JSON normalisation in front of HKO / EPD / MTR / KMB / GMB open-data feeds plus a DeepSeek-powered travel assistant.",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js",
-    "test": "jest --coverage",
-    "test:watch": "jest --watch",
-    "bench": "node scripts/bench.js"
+    "start": "node --env-file=.env index.js",
+    "dev": "node --env-file=.env --watch index.js",
+    "test": "node --test"
   },
   "dependencies": {
-    "better-sqlite3": "11.5.0",
-    "cors": "2.8.5",
-    "express": "4.21.2"
-  },
-  "devDependencies": {
-    "jest": "29.7.0",
-    "nodemon": "3.1.7",
-    "supertest": "7.0.0"
-  },
-  "jest": {
-    "testEnvironment": "node",
-    "collectCoverageFrom": [
-      "lib/**/*.js",
-      "routes/**/*.js",
-      "db.js"
-    ],
-    "coverageThreshold": {
-      "global": {
-        "lines": 80,
-        "statements": 80,
-        "functions": 80,
-        "branches": 70
-      }
-    }
+    "cors": "^2.8.5",
+    "express": "^4.21.0",
+    "fast-xml-parser": "^4.5.0",
+    "hk-pulse": "file:.."
   }
 }

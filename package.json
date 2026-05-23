@@ -1,0 +1,61 @@
+{
+  "name": "hk-pulse",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "HK Pulse — a real-time Hong Kong open-data visualization dashboard built with React 18 + TypeScript + Vite.",
+  "scripts": {
+    "dev": "concurrently -k -n WEB,BFF -c blue,magenta \"npm:dev:web\" \"npm:dev:server\"",
+    "dev:web": "vite --port 4173 --strictPort",
+    "dev:server": "npm --prefix server run dev",
+    "build": "tsc -b && vite build && npm --prefix server install --omit=dev",
+    "start": "node --env-file-if-exists=server/.env server/index.js",
+    "preview": "vite preview --port 4173",
+    "lint": "eslint . --max-warnings 0",
+    "format": "prettier --write .",
+    "test": "vitest run",
+    "test:server": "npm --prefix server test",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "typecheck": "tsc -b --noEmit",
+    "server:install": "npm --prefix server install"
+  },
+  "dependencies": {
+    "@tanstack/react-query": "^5.59.0",
+    "i18next": "^23.15.0",
+    "i18next-browser-languagedetector": "^8.0.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-i18next": "^15.0.0",
+    "react-router-dom": "^6.27.0",
+    "recharts": "^2.13.0",
+    "zustand": "^5.0.0"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.6.0",
+    "@testing-library/react": "^16.0.1",
+    "@testing-library/user-event": "^14.5.2",
+    "@types/node": "^25.9.1",
+    "@types/react": "^18.3.11",
+    "@types/react-dom": "^18.3.0",
+    "@typescript-eslint/eslint-plugin": "^8.8.0",
+    "@typescript-eslint/parser": "^8.8.0",
+    "@vitejs/plugin-react": "^4.3.2",
+    "@vitest/coverage-v8": "^2.1.2",
+    "autoprefixer": "^10.4.20",
+    "concurrently": "^9.0.1",
+    "eslint": "^8.57.1",
+    "eslint-plugin-react": "^7.37.1",
+    "eslint-plugin-react-hooks": "^4.6.2",
+    "jsdom": "^25.0.1",
+    "postcss": "^8.4.47",
+    "prettier": "^3.3.3",
+    "tailwindcss": "^3.4.13",
+    "typescript": "^5.6.2",
+    "vite": "^5.4.8",
+    "vitest": "^2.1.2"
+  },
+  "engines": {
+    "node": ">=20.12"
+  }
+}

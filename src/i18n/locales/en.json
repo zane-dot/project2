@@ -1,0 +1,111 @@
+{
+  "app": {
+    "title": "HK Pulse",
+    "subtitle": "Real-time Hong Kong open-data dashboard"
+  },
+  "nav": {
+    "overview": "Overview",
+    "weather": "Weather",
+    "air": "Air Quality",
+    "mtr": "MTR Status",
+    "bus": "Bus & Minibus",
+    "assistant": "AI Assistant"
+  },
+  "common": {
+    "loading": "Loading…",
+    "error": "Something went wrong",
+    "retry": "Retry",
+    "updatedAt": "Updated {{time}}",
+    "source": "Source",
+    "noData": "No data available",
+    "close": "Close"
+  },
+  "overview": {
+    "heroTitle": "Hong Kong, at a glance.",
+    "heroBody": "Live weather from the Observatory, air-quality readings from the EPD and MTR service notices — all in one place, refreshed every minute.",
+    "kpiTemperature": "Temperature",
+    "kpiHumidity": "Humidity",
+    "kpiAqhiPeak": "Peak AQHI",
+    "kpiAlerts": "Active alerts"
+  },
+  "weather": {
+    "title": "Weather across Hong Kong",
+    "description": "Temperature readings from {{count}} HKO stations, with the daily UV index and humidity.",
+    "stationTemp": "Station temperature (°C)",
+    "uvIndex": "UV index",
+    "humidity": "Humidity (%)"
+  },
+  "air": {
+    "title": "Air Quality Health Index (AQHI)",
+    "description": "Hourly AQHI by general & roadside stations published by the Environmental Protection Department.",
+    "general": "General stations",
+    "roadside": "Roadside stations",
+    "risk": {
+      "low": "Low",
+      "moderate": "Moderate",
+      "high": "High",
+      "veryHigh": "Very High",
+      "serious": "Serious"
+    }
+  },
+  "mtr": {
+    "title": "MTR service status",
+    "description": "Live service status across MTR heavy-rail lines. Tap a line for hours and stations.",
+    "normal": "Normal service",
+    "delayed": "Minor delay",
+    "disrupted": "Service disrupted",
+    "detail": {
+      "empty": "Select a line to see operating hours and the full station list.",
+      "firstTrain": "First train",
+      "lastTrain": "Last train",
+      "headway": "Headway",
+      "minutes": "~{{count}} min",
+      "stationCount": "Stations",
+      "stations": "Stations along the line"
+    }
+  },
+  "bus": {
+    "title": "Bus & Minibus",
+    "description": "All KMB franchised routes and GMB green-minibus directory, live from data.gov.hk.",
+    "kmb": "Bus (KMB)",
+    "gmb": "Minibus (GMB)",
+    "route": "Route",
+    "routes": "routes",
+    "origin": "From",
+    "destination": "To",
+    "bound": "Bound",
+    "searchPlaceholder": "Search route / origin / destination…",
+    "total": "{{count}} routes",
+    "truncated": "Showing first {{shown}} of {{total}} — refine your search.",
+    "selectHint": "Select a route to see its stop sequence.",
+    "selectRegion": "Select a region to see its minibus route codes.",
+    "selectRoute": "Pick a route number to view its stops.",
+    "stopCount": "{{count}} stops",
+    "gmbTotal": "{{count}} green-minibus routes citywide",
+    "routesAvailable": "{{count}} route codes"
+  },
+  "assistant": {
+    "title": "AI travel assistant",
+    "description": "Powered by DeepSeek. Combines your origin and destination with live weather, AQHI and MTR status to recommend a route and what to pack.",
+    "from": "From",
+    "to": "To",
+    "fromPlaceholder": "e.g. Central / Mong Kok / HKU",
+    "toPlaceholder": "e.g. Sha Tin / Tung Chung / The Peak",
+    "submit": "Get advice",
+    "thinking": "Thinking…",
+    "resultTitle": "Recommendation",
+    "errorTitle": "The assistant could not respond.",
+    "chip": {
+      "temp": "🌡 {{value}}°C",
+      "humidity": "💧 {{value}}%",
+      "uv": "☀ UV {{value}}",
+      "aqhi": "AQHI {{value}}",
+      "mtrOk": "🚇 MTR all normal",
+      "mtrIncidents": "🚇 {{count}} alert(s): {{lines}}"
+    }
+  },
+  "footer": {
+    "built": "Built with React + TypeScript · open-data via DATA.GOV.HK",
+    "repo": "Source on GitHub"
+  }
+}

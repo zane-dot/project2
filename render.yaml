@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: hk-pulse
+    runtime: node
+    plan: free
+    region: singapore
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_VERSION
+        value: 20.18.0
+      - key: DEEPSEEK_API_KEY
+        sync: false        # set in Render dashboard, do NOT commit
+      - key: DEEPSEEK_MODEL
+        value: deepseek-chat
+      - key: CACHE_TTL_MS
+        value: 60000

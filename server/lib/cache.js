@@ -1,66 +1,23 @@
-'use strict';
-
 /**
- * Tiny in-memory cache with TTL + size cap.
- *
- * Used to memoise the dashboard `/api/jobs/stats` aggregate, which is the
- * hottest read endpoint. A single-row mutation invalidates the whole cache
- * — exact freshness without coordination, while still cutting P95 latency
- * by ~30x under read-heavy load (see `scripts/bench.js`).
+ * Tiny TTL cache. Single-process, in-memory — perfect for a personal
+ * dashboard whose upstream feeds only refresh every 60 s.
  */
-class TTLCache {
-  /**
-   * @param {{ttlMs?: number, maxEntries?: number}} [opts]
-   */
-  constructor(opts = {}) {
-    this.ttlMs = opts.ttlMs ?? 5_000;
-    this.maxEntries = opts.maxEntries ?? 128;
-    /** @type {Map<string, {value: unknown, expiresAt: number}>} */
-    this.store = new Map();
-    this.hits = 0;
-    this.misses = 0;
-  }
-
-  get(key) {
-    const entry = this.store.get(key);
-    if (!entry) {
-      this.misses += 1;
-      return undefined;
-    }
-    if (entry.expiresAt < Date.now()) {
-      this.store.delete(key);
-      this.misses += 1;
-      return undefined;
-    }
-    // refresh LRU position
-    this.store.delete(key);
-    this.store.set(key, entry);
-    this.hits += 1;
-    return entry.value;
-  }
-
-  set(key, value) {
-    if (this.store.size >= this.maxEntries) {
-      // evict oldest
-      const oldest = this.store.keys().next().value;
-      if (oldest !== undefined) this.store.delete(oldest);
-    }
-    this.store.set(key, { value, expiresAt: Date.now() + this.ttlMs });
-  }
-
-  invalidate() {
-    this.store.clear();
-  }
-
-  stats() {
-    const total = this.hits + this.misses;
-    return {
-      hits: this.hits,
-      misses: this.misses,
-      size: this.store.size,
-      hitRate: total === 0 ? 0 : this.hits / total,
-    };
-  }
+export function createCache(ttlMs) {
+  const store = new Map();
+  return {
+    async get(key, loader) {
+      const hit = store.get(key);
+      const now = Date.now();
+      if (hit && hit.expires > now) {
+        return { value: hit.value, cached: true, age: now - hit.created };
+      }
+      const value = await loader();
+      store.set(key, { value, created: now, expires: now + ttlMs });
+      return { value, cached: false, age: 0 };
+    },
+    invalidate(key) {
+      if (key) store.delete(key);
+      else store.clear();
+    },
+  };
 }
-
-module.exports = { TTLCache };

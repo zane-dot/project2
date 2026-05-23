@@ -1,0 +1,111 @@
+{
+  "app": {
+    "title": "香港脈搏",
+    "subtitle": "香港實時開放數據儀表板"
+  },
+  "nav": {
+    "overview": "總覽",
+    "weather": "天氣",
+    "air": "空氣質素",
+    "mtr": "港鐵狀態",
+    "bus": "巴士及小巴",
+    "assistant": "AI 助理"
+  },
+  "common": {
+    "loading": "載入中⋯",
+    "error": "發生錯誤",
+    "retry": "重試",
+    "updatedAt": "更新於 {{time}}",
+    "source": "資料來源",
+    "noData": "暫無資料",
+    "close": "關閉"
+  },
+  "overview": {
+    "heroTitle": "一眼看盡香港。",
+    "heroBody": "天文台天氣、環保署空氣質素、港鐵服務通告——全部一頁掌握，每分鐘更新。",
+    "kpiTemperature": "氣溫",
+    "kpiHumidity": "濕度",
+    "kpiAqhiPeak": "AQHI 峰值",
+    "kpiAlerts": "現時警示"
+  },
+  "weather": {
+    "title": "全港天氣",
+    "description": "天文台 {{count}} 個自動氣象站的實時氣溫、紫外線指數與濕度。",
+    "stationTemp": "氣象站氣溫 (°C)",
+    "uvIndex": "紫外線指數",
+    "humidity": "濕度 (%)"
+  },
+  "air": {
+    "title": "空氣質素健康指數 (AQHI)",
+    "description": "環保署每小時公佈的一般及路邊空氣監測站讀數。",
+    "general": "一般監測站",
+    "roadside": "路邊監測站",
+    "risk": {
+      "low": "低",
+      "moderate": "中",
+      "high": "高",
+      "veryHigh": "甚高",
+      "serious": "嚴重"
+    }
+  },
+  "mtr": {
+    "title": "港鐵服務狀態",
+    "description": "港鐵重型鐵路各線即時服務狀態，點選綫路查看營運時間及車站。",
+    "normal": "正常服務",
+    "delayed": "輕微延誤",
+    "disrupted": "服務受阻",
+    "detail": {
+      "empty": "點選任何一條綫路，查看首尾班車時間及完整車站名單。",
+      "firstTrain": "首班車",
+      "lastTrain": "尾班車",
+      "headway": "班次",
+      "minutes": "約 {{count}} 分鐘",
+      "stationCount": "車站數目",
+      "stations": "綫路車站"
+    }
+  },
+  "bus": {
+    "title": "巴士及小巴",
+    "description": "九巴 (KMB) 全綫路及綠色專綫小巴 (GMB) 目錄，資料來自 data.gov.hk。",
+    "kmb": "巴士 (九巴)",
+    "gmb": "小巴 (綠色)",
+    "route": "綫路",
+    "routes": "條綫路",
+    "origin": "起點",
+    "destination": "終點",
+    "bound": "方向",
+    "searchPlaceholder": "搜尋綫路 / 起點 / 終點⋯",
+    "total": "共 {{count}} 條綫路",
+    "truncated": "只顯示前 {{shown}} 條（共 {{total}}），請縮窄搜尋。",
+    "selectHint": "點選綫路查看途經車站。",
+    "selectRegion": "點選地區查看小巴綫號。",
+    "selectRoute": "點選綫號查看小巴站序。",
+    "stopCount": "共 {{count}} 個車站",
+    "gmbTotal": "全港共 {{count}} 條綠色小巴綫路",
+    "routesAvailable": "共 {{count}} 個綫號"
+  },
+  "assistant": {
+    "title": "AI 出行助理",
+    "description": "由 DeepSeek 提供。結合你的起終點與實時天氣、AQHI、港鐵狀態，推薦路線並提示出行裝備。",
+    "from": "從",
+    "to": "到",
+    "fromPlaceholder": "例：中環 / 旺角 / 港大",
+    "toPlaceholder": "例：沙田 / 東涌 / 山頂",
+    "submit": "取得建議",
+    "thinking": "思考中⋯",
+    "resultTitle": "建議",
+    "errorTitle": "助理暫時無法回應。",
+    "chip": {
+      "temp": "🌡 {{value}}°C",
+      "humidity": "💧 {{value}}%",
+      "uv": "☀ 紫外線 {{value}}",
+      "aqhi": "AQHI {{value}}",
+      "mtrOk": "🚇 港鐵全綫正常",
+      "mtrIncidents": "🚇 {{count}} 條綫路有訊息：{{lines}}"
+    }
+  },
+  "footer": {
+    "built": "以 React + TypeScript 構建 · 數據來自 DATA.GOV.HK",
+    "repo": "GitHub 原始碼"
+  }
+}
